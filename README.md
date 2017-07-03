@@ -1,0 +1,2 @@
+# LaunchSetter
+Set LaunchServices filetypes
