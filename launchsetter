@@ -1,0 +1,70 @@
+//
+//  main.m
+//  SetMailDefault
+//
+//  Created by Houle, Todd - 1130 - MITLL on 7/3/17.
+//  Copyright © 2017 MIT Lincoln Labs. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+int main(int argc, const char * argv[]) {
+    @autoreleasepool {
+        //if (argc == 1)
+        //{
+        //    NSLog(@"Format: get/set handler program");
+        //    NSLog(@"Example: set mailto com.microsoft.Outlook");
+        //}
+
+        
+        
+        NSString *arg1 = [NSString stringWithUTF8String:argv[1]];
+
+        if ([arg1 isEqualTo:@"get"]) {
+            NSLog(@"Get Found");
+
+            CFURLRef mailURL = CFURLCreateWithString(kCFAllocatorDefault, CFSTR("mailto://"), NULL);
+            CFURLRef mailAppURL = NULL;
+            OSStatus ret = 0;
+            if((ret = LSGetApplicationForURL(mailURL, kLSRolesAll, NULL, &mailAppURL)) == 0)
+            {
+                CFStringRef path = CFURLCopyFileSystemPath(mailAppURL, kCFURLPOSIXPathStyle);
+                CFShow(path);
+            
+                CFRelease(path);
+                CFRelease(mailAppURL);
+            }
+            else
+            {
+                fprintf(stderr, "LaunchServices error %d\n", ret);
+            }
+            CFRelease(mailURL);
+            return ret;
+
+        }
+        
+        if ([arg1 isEqualToString:@"set"])
+        {
+            NSLog(@"Set Found");
+            if (argc != 4)
+            {
+                NSLog(@"Format required: lsset handler program");
+                NSLog(@"Example: lsset mailto com.microsoft.Outlook");
+                exit(0);
+            }
+            NSString *arg2 = [NSString stringWithUTF8String:argv[2]];
+            NSString *arg3 = [NSString stringWithUTF8String:argv[3]];
+            
+            LSSetDefaultHandlerForURLScheme((__bridge CFStringRef _Nonnull)(arg2), (__bridge CFStringRef _Nonnull)(arg3));
+
+        }
+
+        NSLog(@"Build 436");
+        
+        
+        
+
+    
+    }
+    return 0;
+}
