@@ -20,3 +20,10 @@ To find the application Bundle ID required by LaunchSetter, type the following i
      
      defaults read /Applications/Mail.app/Contents/Info.plist CFBundleIdentifier
      
+# Installing
+
+Download LaunchSetter from the Repo and copy it somewhere useful like /usr/local/bin.  You'll need to make it executable so run the following command.
+
+    chmod +x /path/to/LaunchSetter
+    
+Or you can compile it yourself.
