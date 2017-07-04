@@ -13,7 +13,9 @@ Will return the application the OS will use for https links.
 
      LaunchSetter set mailto com.apple.Mail
 
-Will map mailto links to the application Apple Mail.  To find the application Bundle ID required by LaunchSetter, type the following in Terminal:
+Will map mailto links to the application Apple Mail.  
+
+To find the application Bundle ID required by LaunchSetter, type the following in Terminal:
      
      
      defaults read /Applications/Mail.app/Contents/Info.plist CFBundleIdentifier
