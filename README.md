@@ -9,7 +9,7 @@ LaunchSetter is a command line tool to define what program should be used for di
 
 Will return the application the OS will use for https links.  
 
-#Set Usage:
+# Set Usage:
 
      LaunchSetter set mailto com.apple.Mail
 
