@@ -12,8 +12,8 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         if (argc == 1)  //if no arguments supplied
         {
-            NSLog(@"Format: get/set handler program");
-            NSLog(@"Example: set mailto com.microsoft.Outlook");
+            NSLog(@"Format: LaunchSetter get/set handler program");
+            NSLog(@"Example: LaunchSetter set mailto com.microsoft.Outlook");
             exit(0);
         }
         
@@ -50,8 +50,8 @@ int main(int argc, const char * argv[]) {
             //NSLog(@"Set Found");
             if (argc != 4)
             {
-                NSLog(@"Format required: lsset handler program");
-                NSLog(@"Example: lsset mailto com.microsoft.Outlook");
+                NSLog(@"Format required: LaunchSetter set handler program");
+                NSLog(@"Example: LaunchSetter set mailto com.microsoft.Outlook");
                 exit(0);
             }
             NSString *arg2 = [NSString stringWithUTF8String:argv[2]];
